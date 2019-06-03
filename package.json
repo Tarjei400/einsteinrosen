@@ -17,6 +17,7 @@
     "poc": "ts-node -r tsconfig-paths/register src/ssh/cli-interface/index.jsx",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
+    "test:cov:ci": "jest --coverage --coverageReporters=text-lcov | coveralls",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
@@ -26,6 +27,7 @@
     "@nestjs/platform-express": "^6.0.0",
     "http-proxy": "^1.17.0",
     "ink": "^2.2.0",
+    "ink-box": "^1.0.0",
     "react": "^16.8.6",
     "reflect-metadata": "^0.1.12",
     "rimraf": "^2.6.2",

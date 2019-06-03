@@ -5,6 +5,7 @@ import { TunnelService } from './tunnel/tunnel.service';
 import { Counter } from './cli-interface';
 import * as React from 'react';
 import { CliInterfaceFactory } from './cli-interface/cli-interface.factory';
+import { CliInterface } from './cli-interface/cli-interface';
 
 
 @Module({
@@ -12,6 +13,7 @@ import { CliInterfaceFactory } from './cli-interface/cli-interface.factory';
     SSHServer,
     DomainMapperService,
     TunnelService,
+    CliInterface,
     {
       useFactory: CliInterfaceFactory,
       provide: 'UI',

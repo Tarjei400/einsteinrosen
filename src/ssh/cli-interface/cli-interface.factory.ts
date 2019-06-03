@@ -4,7 +4,7 @@ import { Counter } from './index';
 
 export let DiProvider;
 export interface Di {
-  domainMapper: DomainMapperService,
+  domainMapper: DomainMapperService
 }
 
 export function CliInterfaceFactory(domainMapper: DomainMapperService) {
