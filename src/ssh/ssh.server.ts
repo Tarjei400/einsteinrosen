@@ -16,7 +16,6 @@ const LOCALHOST			   = '127.0.0.1';
 
 const RSA_KEY_PATH     = './keys/key_ssh_rsa';
 
-
 @Injectable()
 export class SSHServer {
 
@@ -50,7 +49,7 @@ export class SSHServer {
   }
 
   onAuthenticate(ctx) {
-    console.log("Method", ctx.method);
+    console.log('Method', ctx.method);
     ctx.accept();
   }
 
@@ -61,7 +60,6 @@ export class SSHServer {
   }
 
   onReady(client) {
-    this.cliInterface.install(client)
+    this.cliInterface.install(client);
   }
 }
-

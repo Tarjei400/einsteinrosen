@@ -11,7 +11,7 @@ export class TunnelService {
   @Inject()
   private readonly domainMapper: DomainMapperService;
 
-  createTunnel(sshClient, accept, reject, name, info){
+  createTunnel(sshClient, accept, reject, name, info) {
     const tunnel = net.createServer(this.onTunnelCreate.bind(this, sshClient, info)).listen();
     tunnel.on(LISTENING_EVENT, this.onTunnelListening.bind(this, tunnel, accept, reject, info));
     sshClient.on(END_EVENT, this.onSSHClientDisconnect.bind(this, info, tunnel));

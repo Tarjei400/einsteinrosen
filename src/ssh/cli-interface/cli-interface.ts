@@ -8,6 +8,8 @@ const SHELL_EVENT = 'shell';
 const ERROR_EVENT = 'error';
 const SESSION_EVENT = 'session';
 
+const noop = () => { return; };
+
 @Injectable()
 export class CliInterface {
 
@@ -33,16 +35,16 @@ export class CliInterface {
   }
   private onWindowChange(accept, reject, info) {
     console.log('Window-change');
-    accept && accept();
+    accept();
   }
 
   private onShell(windowSize, accept, reject, info) {
     const stream = accept();
-    console.log("Shell", JSON.stringify(windowSize))
+    console.log('Shell', JSON.stringify(windowSize));
     stream.name = 'asd';
     stream.isTTY = true;
-    stream.setRawMode = () => {};
-    stream.on('error', (e) => console.error('Stream error: ', e) )
+    stream.setRawMode = noop;
+    stream.on('error', (e) => console.error('Stream error: ', e) );
 
     stream.rows = windowSize.rows;
     stream.columns = windowSize.cols;

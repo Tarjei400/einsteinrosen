@@ -7,7 +7,6 @@ import * as React from 'react';
 import { CliInterfaceFactory } from './cli-interface/cli-interface.factory';
 import { CliInterface } from './cli-interface/cli-interface';
 
-
 @Module({
   providers: [
     SSHServer,
