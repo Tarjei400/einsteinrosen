@@ -6,6 +6,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/Tarjei400/einsteinrosen/badge.svg?branch=master)](https://coveralls.io/github/Tarjei400/einsteinrosen?branch=master)
 [![Mutation testing badge](https://badge.stryker-mutator.io/github.com/Tarjei400/einsteinrosen/master)](https://stryker-mutator.github.io)
 
+![](http://news.mit.edu/sites/mit.edu.newsoffice/files/styles/news_article_image_top_slideshow/public/images/2013/2013_33?itok=k3aY5e4Y)
 ## Description
 
 ## Installation
