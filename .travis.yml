@@ -17,4 +17,5 @@ install:
 script:
   - yarn lint
   - yarn test
-after_success: yarn run test:cov:ci
+  - yarn run test:cov:ci
+  - yarn run test:mutation

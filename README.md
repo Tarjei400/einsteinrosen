@@ -5,7 +5,9 @@
 [![Vulnerabilities](https://snyk.io/test/github/Tarjei400/einsteinrosen/badge.svg)](https://snyk.io/test/github/Tarjei400/einsteinrosen)
 [![Coverage Status](https://coveralls.io/repos/github/Tarjei400/einsteinrosen/badge.svg?branch=master)](https://coveralls.io/github/Tarjei400/einsteinrosen?branch=master)
 [![Mutation testing badge](https://badge.stryker-mutator.io/github.com/Tarjei400/einsteinrosen/master)](https://stryker-mutator.github.io)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FTarjei400%2Feinsteinrosen.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FTarjei400%2Feinsteinrosen?ref=badge_shield)
 
+![](http://news.mit.edu/sites/mit.edu.newsoffice/files/styles/news_article_image_top_slideshow/public/images/2013/2013_33?itok=k3aY5e4Y)
 ## Description
 
 ## Installation
