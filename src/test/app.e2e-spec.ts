@@ -21,7 +21,7 @@ describe('AppController (e2e)', () => {
   afterAll( () => {
     server.close();
   });
-  
+
   it('/ (GET)', () => {
     return request(app.getHttpServer())
       .get('/')
