@@ -62,4 +62,8 @@ export class SSHServer {
   onReady(client) {
     this.cliInterface.install(client);
   }
+
+  close() {
+    this.server.close();
+  }
 }
