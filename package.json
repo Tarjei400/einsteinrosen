@@ -22,7 +22,9 @@
     "test:cov:ci": "jest --coverage --coverageReporters=text-lcov | coveralls",
     "test:mutation": "npx stryker run",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "snyk-protect": "snyk protect",
+    "prepare": "yarn run snyk-protect"
   },
   "dependencies": {
     "@nestjs/common": "^6.0.0",
@@ -36,7 +38,8 @@
     "reflect-metadata": "^0.1.12",
     "rimraf": "^2.6.2",
     "rxjs": "^6.3.3",
-    "ssh2": "Tarjei400/ssh2#master"
+    "ssh2": "Tarjei400/ssh2#master",
+    "snyk": "^1.258.2"
   },
   "devDependencies": {
     "@nestjs/testing": "^6.0.0",
@@ -72,5 +75,6 @@
     },
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
-  }
+  },
+  "snyk": true
 }
