@@ -1,0 +1,66 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: tunnel
+  labels:
+    app: tunneling-label
+spec:
+  nodeName: node1
+  containers:
+    - name: tunnel
+      image: tarjei400/einsteinrosen
+      imagePullPolicy: Always
+      ports:
+        - name: api
+          containerPort: 3000
+        - name: http
+          containerPort: 80
+        - name: ssh-svc-port
+          containerPort: 4444
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: tunnel
+spec:
+  selector:
+    app: tunneling-label
+  ports:
+    - port: 3000
+      name: api-svc-port
+      targetPort: api
+    - port: 80
+      name: http-svc-port
+      targetPort: http
+    - port: 30022
+      name: ssh-svc-port
+      protocol: TCP
+      targetPort: 4444
+      nodePort: 30022
+  type: NodePort
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: tunnel
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  backend:
+    serviceName: tunnel
+    servicePort: 80
+
+  rules:
+    - host: '*.tunnel.necronia.com'
+      http:
+        paths:
+          - path: /port
+            backend:
+              serviceName: tunnel
+              servicePort: 3000
+          - path: /
+            backend:
+              serviceName: tunnel
+              servicePort: 80

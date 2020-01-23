@@ -11,8 +11,8 @@ const REQUEST_EVENT 	   = 'request';
 const READY_EVENT 		   = 'ready';
 const TCPIP_FORWARD_EVENT  = 'tcpip-forward';
 
-const SSH_PORT 			   = 4444;
-const LOCALHOST			   = '127.0.0.1';
+const SSH_PORT 			     = 4444;
+const LISTEN_ADDRESS_IP  = '0.0.0.0';
 
 const RSA_KEY_PATH     = './keys/key_ssh_rsa';
 
@@ -38,11 +38,12 @@ export class SSHServer {
     };
 
     this.server = new ssh2.Server(sshConfig, this.bindEvents.bind(this));
-    this.server.listen(SSH_PORT, LOCALHOST, () => console.log('Listening on port ' + this.server.address().port) );
+    this.server.listen(SSH_PORT, LISTEN_ADDRESS_IP, () => console.log('Listening on port ' + this.server.address().port) );
 
   }
 
   bindEvents(sshClient) {
+    console.log("Connecting client!");
     sshClient.on(AUTHENTICATION_EVENT, this.onAuthenticate.bind(this));
     sshClient.on(REQUEST_EVENT, this.onRequest.bind(this, sshClient));
     sshClient.on(READY_EVENT, this.onReady.bind(this, sshClient));

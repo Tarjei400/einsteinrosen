@@ -16,7 +16,7 @@ module.exports = function(config) {
       "!coverage/**/*",
       "!node_modules/**/*",
     ],
-    maxConcurrentTestRunners: 3,
+    maxConcurrentTestRunners: 1,
     command: 'test'
   });
 };

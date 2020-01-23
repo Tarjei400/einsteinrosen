@@ -6,10 +6,12 @@ import { Counter } from './cli-interface/app';
 import * as React from 'react';
 import { CliInterfaceFactory } from './cli-interface/cli-interface.factory';
 import { CliInterface } from './cli-interface/cli-interface';
+import { ProxyServer } from './proxy-server';
 
 @Module({
   providers: [
     SSHServer,
+    ProxyServer,
     DomainMapperService,
     TunnelService,
     CliInterface,

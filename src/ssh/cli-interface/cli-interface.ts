@@ -1,5 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { render } from 'ink';
+import { createWriteStream } from 'fs';
 
 const EXEC_EVENT = 'exec';
 const PTY_EVENT  = 'pty';
@@ -18,38 +19,38 @@ export class CliInterface {
 
   private onExecuteCommand(accept, reject, info) {
     console.log('Client wants to execute: ' + info.command);
-    const stream = accept();
-    stream.stderr.write('Oh no, the dreaded errors!\n');
-    stream.write('Just kidding about the errors!\n');
-    stream.exit(0);
-    stream.end();
+    if(accept){
+      const stream = accept();
+      stream.stderr.write('Oh no, the dreaded errors!\n');
+      stream.write('Just kidding about the errors!\n');
+      stream.exit(0);
+      stream.end();
+    }
   }
 
   private onPTY(windowSize, accept, reject, info) {
-    const { rows, cols } = info;
+    const { rows, cols, term, modes } = info;
     accept();
     windowSize.rows = rows;
     windowSize.cols = cols;
+    windowSize.term = term;
+    windowSize.modes = modes;
 
     console.log('Pty requested', JSON.stringify(info));
   }
   private onWindowChange(accept, reject, info) {
     console.log('Window-change');
-    accept();
+   // accept();
   }
 
   private onShell(windowSize, accept, reject, info) {
     const stream = accept();
-    console.log('Shell', JSON.stringify(windowSize));
+
+    stream.write('FirstLine1\n');
+    stream.write('SecondLine1\n');
     stream.name = 'asd';
-    stream.isTTY = true;
     stream.setRawMode = noop;
     stream.on('error', (e) => console.error('Stream error: ', e) );
-
-    stream.rows = windowSize.rows;
-    stream.columns = windowSize.cols;
-
-    console.log(this.ui);
     render(this.ui, { stdout: stream, stdin: stream, exitOnCtrlC: true});
 
   }

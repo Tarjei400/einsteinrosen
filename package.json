@@ -30,13 +30,13 @@
     "@nestjs/platform-express": "^6.0.0",
     "@stryker-mutator/core": "^2.0.0",
     "http-proxy": "^1.17.0",
-    "ink": "^2.2.0",
+    "ink": "^2.5.0",
     "ink-box": "^1.0.0",
     "react": "^16.8.6",
     "reflect-metadata": "^0.1.12",
     "rimraf": "^2.6.2",
     "rxjs": "^6.3.3",
-    "ssh2": "Tarjei400/ssh2#master"
+    "ssh2": "^0.8.6"
   },
   "devDependencies": {
     "@nestjs/testing": "^6.0.0",
