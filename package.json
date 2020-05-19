@@ -29,7 +29,7 @@
     "@nestjs/core": "^6.0.0",
     "@nestjs/platform-express": "^6.0.0",
     "@stryker-mutator/core": "^2.0.0",
-    "http-proxy": "^1.17.0",
+    "http-proxy": "^1.18.1",
     "ink": "^2.5.0",
     "ink-box": "^1.0.0",
     "react": "^16.8.6",
